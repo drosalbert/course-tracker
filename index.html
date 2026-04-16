@@ -610,7 +610,7 @@
 
 <h1 id="mainTitle" title="Klik om te bewerken" style="cursor:text">Complete Landscape Photography Course 2025</h1>
 <p class="subtitle" id="mainSubtitle" title="Klik om te bewerken" style="cursor:text">Albert Dros × Thijs — lesson tracker</p>
-<p style="text-align:center;font-size:0.75rem;margin-top:6px;margin-bottom:0;height:16px;" id="syncStatus"></p>
+<p style="text-align:center;font-size:0.78rem;margin-top:8px;margin-bottom:0;height:18px;letter-spacing:0.2px;" id="syncStatus">laden…</p>
 
 <div id="focusBlock" class="focus-block">
   <div class="focus-block-header">
@@ -698,6 +698,8 @@
       const local = localStorage.getItem('courseState');
       if (local) Object.assign(state, JSON.parse(local));
     }
+    makeEditable(document.getElementById('mainTitle'), 'mainTitle', 'Complete Landscape Photography Course 2025');
+    makeEditable(document.getElementById('mainSubtitle'), 'mainSubtitle', 'Albert Dros × Thijs — lesson tracker');
     renderFocusBlock();
     renderCourse();
     setSyncStatus('synced');
@@ -1221,9 +1223,6 @@
       });
     });
   }
-
-  makeEditable(document.getElementById('mainTitle'), 'mainTitle', 'Complete Landscape Photography Course 2025');
-  makeEditable(document.getElementById('mainSubtitle'), 'mainSubtitle', 'Albert Dros × Thijs — lesson tracker');
 
   loadState();
 </script>
