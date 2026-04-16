@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete Landscape Photography Course 2025</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 0.85rem;
+      margin-bottom: 40px;
+    }
+
+
+    .section {
+      max-width: 780px;
+      margin: 0 auto 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .section-collapse-btn {
+      background: none;
+      border: none;
+      color: #444;
+      cursor: pointer;
+      font-size: 0.65rem;
+      padding: 0;
+      line-height: 1;
+      transition: color 0.15s, transform 0.2s;
+      transform: rotate(0deg);
+    }
+
+    .section-collapse-btn.collapsed {
+      transform: rotate(-90deg);
+    }
+
+    .section-collapse-btn:hover {
+      color: #888;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: none;
+      color: #ddd;
+      padding-left: 0;
+      cursor: text;
+      display: inline-block;
+    }
+
+    .section-title:hover {
+      color: #fff;
+    }
+
+    .section-body {
+      overflow: hidden;
+      transition: opacity 0.2s;
+    }
+
+    .section-body.collapsed {
+      display: none;
+    }
+
+    .section-title-input {
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      color: #fff;
+      background: #1e1e1e;
+      border: 1px solid #444;
+      border-radius: 4px;
+      padding: 1px 8px;
+      outline: none;
+    }
+
+    .lesson {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .lesson:hover {
+      border-color: #3a3a3a;
+    }
+
+    .lesson.status-recorded {
+      border-color: #3a2e10;
+      background: #1c1a12;
+    }
+
+    .lesson.status-done {
+      border-color: #1a3a2a;
+      background: #161f1a;
+    }
+
+    .lesson-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      user-select: none;
+    }
+
+    .status-btn {
+      flex-shrink: 0;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      padding: 4px 10px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .status-btn.s-todo {
+      background: #2a2a2a;
+      color: #e05555;
+    }
+
+    .status-btn.s-torecord {
+      background: #1a2035;
+      color: #5b9bd5;
+    }
+
+    .status-btn.s-recorded {
+      background: #2e2510;
+      color: #f0a500;
+    }
+
+    .status-btn.s-done {
+      background: #1a3a28;
+      color: #2ecc71;
+    }
+
+    .lesson-title {
+      flex: 1;
+      font-size: 0.92rem;
+      color: #ccc;
+      line-height: 1.4;
+      cursor: text;
+    }
+
+    .lesson-title:hover {
+      color: #fff;
+    }
+
+    .title-input {
+      flex: 1;
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: #fff;
+      background: #252525;
+      border: 1px solid #555;
+      border-radius: 4px;
+      padding: 2px 8px;
+      outline: none;
+      width: 100%;
+    }
+
+    .lesson.status-torecord {
+      border-color: #1a2540;
+      background: #12161f;
+    }
+
+    .lesson.status-torecord .lesson-title {
+      color: #7ab3e0;
+    }
+
+    .lesson.status-recorded .lesson-title {
+      color: #f0c060;
+    }
+
+    .lesson.status-done .lesson-title {
+      color: #4ade80;
+    }
+
+    .lesson-note {
+      font-size: 0.75rem;
+      color: #555;
+      margin-left: auto;
+      white-space: nowrap;
+      padding-left: 12px;
+    }
+
+    .comment-area {
+      padding: 0 16px 14px 64px;
+      display: none;
+    }
+
+    .comment-area.open {
+      display: block;
+    }
+
+    .comment-area textarea {
+      width: 100%;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      color: #bbb;
+      font-size: 0.82rem;
+      padding: 10px 12px;
+      resize: vertical;
+      min-height: 60px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .comment-area textarea:focus {
+      border-color: #444;
+    }
+
+    .comment-area textarea::placeholder {
+      color: #444;
+    }
+
+    .expand-btn {
+      font-size: 0.75rem;
+      color: #555;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.2s;
+    }
+
+    .expand-btn:hover {
+      color: #888;
+    }
+
+    .lesson.has-comment .expand-btn {
+      color: #4a7c59;
+    }
+
+    .delete-btn {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0 2px;
+      line-height: 1;
+      transition: color 0.15s;
+      opacity: 0;
+    }
+
+    .lesson:hover .delete-btn {
+      opacity: 1;
+    }
+
+    .delete-btn:hover {
+      color: #c0392b;
+    }
+
+    .lesson-notes {
+      padding: 0 16px 12px 16px;
+    }
+
+    .lesson-notes textarea {
+      width: 100%;
+      background: #111;
+      border: 1px dashed #252525;
+      border-radius: 6px;
+      color: #777;
+      font-size: 0.8rem;
+      font-family: inherit;
+      padding: 8px 12px;
+      resize: vertical;
+      min-height: 48px;
+      outline: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .lesson-notes textarea:focus {
+      border-color: #3a3a3a;
+      color: #bbb;
+    }
+
+    .lesson-notes textarea::placeholder {
+      color: #2e2e2e;
+    }
+
+    .sub-items {
+      padding: 0 16px 12px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sub-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 7px;
+      padding: 8px 12px;
+    }
+
+    .sub-item-label {
+      font-size: 0.82rem;
+      color: #888;
+      flex: 1;
+    }
+
+    .sub-item.s-recorded .sub-item-label { color: #f0c060; }
+    .sub-item.s-torecord .sub-item-label { color: #7ab3e0; }
+    .sub-item.s-done .sub-item-label    { color: #4ade80; }
+
+    .sub-status-btn {
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .section-notes {
+      max-width: 780px;
+      margin: 12px auto 0;
+    }
+
+    .section-notes textarea {
+      width: 100%;
+      background: #131313;
+      border: 1px dashed #2a2a2a;
+      border-radius: 8px;
+      color: #888;
+      font-size: 0.82rem;
+      font-family: inherit;
+      padding: 12px 14px;
+      resize: vertical;
+      min-height: 52px;
+      outline: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .section-notes textarea:focus {
+      border-color: #444;
+      color: #bbb;
+    }
+
+    .section-notes textarea::placeholder {
+      color: #333;
+    }
+
+    .lesson-collapse-btn {
+      background: none;
+      border: none;
+      color: #444;
+      cursor: pointer;
+      font-size: 0.6rem;
+      padding: 0;
+      line-height: 1;
+      transition: color 0.15s, transform 0.2s;
+      transform: rotate(0deg);
+      flex-shrink: 0;
+    }
+
+    .lesson-collapse-btn.collapsed {
+      transform: rotate(-90deg);
+    }
+
+    .lesson-collapse-btn:hover {
+      color: #888;
+    }
+
+    .lesson-body.collapsed {
+      display: none;
+    }
+
+    .focus-block {
+      max-width: 780px;
+      margin: 0 auto 40px;
+      background: #1c1a0f;
+      border: 1.5px solid #6b5c00;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 24px rgba(180, 140, 0, 0.07);
+    }
+
+    .focus-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid #2e2700;
+      background: #1f1d10;
+    }
+
+    .focus-block-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #a08800;
+    }
+
+    .focus-add-btn {
+      background: none;
+      border: 1px solid #5a4d00;
+      color: #7a6800;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .focus-add-btn:hover {
+      color: #c8a800;
+      border-color: #a08800;
+    }
+
+    .focus-items {
+      padding: 8px 12px;
+    }
+
+    .focus-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 4px;
+      border-bottom: 1px solid #231f00;
+    }
+
+    .focus-item:last-child {
+      border-bottom: none;
+    }
+
+    .focus-item-title {
+      flex: 1;
+      font-size: 0.88rem;
+      color: #ccc;
+      cursor: text;
+    }
+
+    .focus-item-title:hover {
+      color: #fff;
+    }
+
+    .focus-dropbox-btn {
+      border: none;
+      border-radius: 5px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+      background: #222;
+      color: #555;
+    }
+
+    .focus-dropbox-btn.active {
+      background: #0d2d4a;
+      color: #4a9edd;
+    }
+
+    .focus-delete-btn {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 0;
+      opacity: 0;
+      transition: color 0.15s, opacity 0.15s;
+    }
+
+    .focus-item:hover .focus-delete-btn {
+      opacity: 1;
+    }
+
+    .focus-delete-btn:hover {
+      color: #c0392b;
+    }
+
+    .focus-item-notes {
+      padding: 0 4px 10px 4px;
+    }
+
+    .focus-item-notes textarea {
+      width: 100%;
+      background: #141200;
+      border: 1px dashed #2e2700;
+      border-radius: 6px;
+      color: #888;
+      font-size: 0.8rem;
+      font-family: inherit;
+      padding: 8px 12px;
+      resize: vertical;
+      min-height: 48px;
+      outline: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .focus-item-notes textarea:focus {
+      border-color: #6b5c00;
+      color: #bbb;
+    }
+
+    .focus-item-notes textarea::placeholder {
+      color: #2e2700;
+    }
+
+    .focus-empty {
+      font-size: 0.8rem;
+      color: #333;
+      padding: 8px 4px 4px;
+    }
+
+    .drag-handle {
+      color: #333;
+      cursor: grab;
+      font-size: 0.85rem;
+      padding: 0 2px;
+      line-height: 1;
+      user-select: none;
+      transition: color 0.15s;
+    }
+
+    .lesson:hover .drag-handle {
+      color: #555;
+    }
+
+    .drag-handle:active {
+      cursor: grabbing;
+    }
+
+    .lesson.dragging {
+      opacity: 0.4;
+    }
+
+    .lesson.drag-over {
+      border-color: #555;
+      border-style: dashed;
+    }
+
+    .indent-btns {
+      display: flex;
+      gap: 2px;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .lesson:hover .indent-btns {
+      opacity: 1;
+    }
+
+    .indent-btn {
+      background: none;
+      border: 1px solid #333;
+      color: #555;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      padding: 2px 5px;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .indent-btn:hover {
+      color: #aaa;
+      border-color: #555;
+    }
+
+    .indent-btn:disabled {
+      opacity: 0.2;
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+
+<h1 id="mainTitle" title="Klik om te bewerken" style="cursor:text">Complete Landscape Photography Course 2025</h1>
+<p class="subtitle" id="mainSubtitle" title="Klik om te bewerken" style="cursor:text">Albert Dros × Thijs — lesson tracker</p>
+
+<div id="focusBlock" class="focus-block">
+  <div class="focus-block-header">
+    <span class="focus-block-title">Waar we nu aan werken</span>
+    <button class="focus-add-btn" id="focusAddBtn">+ Voeg toe</button>
+  </div>
+  <div class="focus-items" id="focusItems"></div>
+</div>
+
+<div id="courseContainer"></div>
+
+<script>
+  const course = [
+    {
+      section: "Introduction",
+      lessons: [
+        { id: "intro_welcome", title: "Welcome to this course" },
+        { id: "intro_facebook", title: "Facebook group" },
+        { id: "intro_overview", title: "About this course — 2 years in the making, all shot in the Netherlands, all-round topics, ambassadorships & partners (Sony, BenQ, NiSi), format: lecture → in the field → editing" },
+      ]
+    },
+    {
+      section: "Core Topics",
+      lessons: [
+        { id: "composition", title: "The Art of Landscape Composition & Principles" },
+        { id: "editing_role", title: "The role of editing in landscape photography — RAW, personal vision, editing courses" },
+        { id: "finding_spots", title: "How to find spots near you — Google, Google Maps, Streetview, Google Earth, LocationScout, Dutch photo spots map" },
+        { id: "weather", title: "How to plan & read the weather — apps & websites (Buienradar, WeatherPro, Clearoutside, Viewfindr, Aurora workflow)" },
+        { id: "photopills", title: "Planning Masterclass: aligning sun, moon & Milky Way with PhotoPills" },
+      ]
+    },
+    {
+      section: "Gear & Settings",
+      lessons: [
+        { id: "gear_cameras", title: "My cameras — Sony A7RV, Sony A1 II" },
+        { id: "gear_lenses", title: "My lenses — wide (16-35 GM II, 12-24 GM, Laowa 15mm), mid (24-70 GM II), long (70-200, 100-400, 400-800), macro (100 GM)" },
+        { id: "gear_accessories", title: "Accessories — Nitecore BB21, powerbank, headlight, lens cloth, sensor cleaner, remote, Mindshift 36L bag" },
+        { id: "gear_filters", title: "Filters — what I use and recommend (more depth in seascape episode)" },
+        { id: "gear_tripod", title: "Tripods — heavy studio tripod + light travel tripod" },
+        { id: "gear_clothing", title: "Clothing — Haukland jacket (YouTube video with full features)" },
+      ]
+    },
+    {
+      section: "In the Field",
+      lessons: [
+        { id: "field_windmill", title: "Shooting a landscape — windmill, lente", note: "lente", lessonNotes: true },
+        { id: "field_heide", title: "Heide area", note: "augustus", lessonNotes: true },
+        { id: "field_flowers", title: "Bloemen", note: "april · AF", lessonNotes: true },
+        { id: "field_seascape", title: "Seascapes — Zeeland, long exposures, wave dynamics, filters", note: "voor lente · AF", lessonNotes: true },
+        { id: "field_forest", title: "Forests", note: "herfst · AF", lessonNotes: true },
+        { id: "field_mushrooms", title: "Mushrooms", note: "herfst · AF", lessonNotes: true },
+        { id: "field_cityscape", title: "Cityscape — blue hour", note: "voor lente · AF", lessonNotes: true },
+        { id: "field_drone", title: "Drone shot — scouting with Google Earth (affiliate Nigel Danson drone course?)", note: "vanaf mei", lessonNotes: true },
+        { id: "field_moon", title: "Moon night shoot", note: "vanaf april · AF", lessonNotes: true },
+      ]
+    }
+  ];
+
+  // status cycle: 'todo' → 'torecord' → 'recorded' → 'done' → 'todo'
+  const STATUSES = ['todo', 'torecord', 'recorded', 'done'];
+  const STATUS_LABELS = { todo: 'Niet klaar', torecord: 'Nog opnemen', recorded: 'Opgenomen', done: 'Klaar' };
+  const STATUS_CLASSES = { todo: 's-todo', torecord: 's-torecord', recorded: 's-recorded', done: 's-done' };
+
+  const state = JSON.parse(localStorage.getItem('courseState') || '{}');
+
+  function saveState() {
+    localStorage.setItem('courseState', JSON.stringify(state));
+  }
+
+  function updateProgress() {}
+
+  function renderCourse() {
+    const container = document.getElementById('courseContainer');
+    container.innerHTML = '';
+
+    course.forEach(section => {
+      const sec = document.createElement('div');
+      sec.className = 'section';
+
+      const sectionKey = 'section_title_' + section.section.replace(/\s+/g, '_');
+      const collapseKey = 'section_collapsed_' + section.section.replace(/\s+/g, '_');
+      const isCollapsed = !!state[collapseKey];
+
+      const secHeader = document.createElement('div');
+      secHeader.className = 'section-header';
+
+      const collapseBtn = document.createElement('button');
+      collapseBtn.className = 'section-collapse-btn' + (isCollapsed ? ' collapsed' : '');
+      collapseBtn.textContent = '▼';
+      collapseBtn.title = isCollapsed ? 'Uitklappen' : 'Inklappen';
+
+      const title = document.createElement('div');
+      title.className = 'section-title';
+      title.textContent = state[sectionKey] || section.section;
+      title.title = 'Klik om te bewerken';
+      title.addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = title.textContent;
+        input.className = 'section-title-input';
+        title.replaceWith(input);
+        input.focus();
+        input.select();
+        function save() {
+          const val = input.value.trim() || section.section;
+          state[sectionKey] = val;
+          saveState();
+          renderCourse();
+        }
+        input.addEventListener('blur', save);
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') input.blur();
+          if (e.key === 'Escape') { input.value = title.textContent; input.blur(); }
+        });
+      });
+
+      const sectionStatusKey = 'section_status_' + section.section.replace(/\s+/g, '_');
+      const sectionStatus = state[sectionStatusKey] || 'todo';
+
+      const sectionStatusBtn = document.createElement('button');
+      sectionStatusBtn.className = 'status-btn ' + STATUS_CLASSES[sectionStatus];
+      sectionStatusBtn.textContent = STATUS_LABELS[sectionStatus];
+      sectionStatusBtn.style.marginLeft = 'auto';
+      sectionStatusBtn.addEventListener('click', () => {
+        const cur = state[sectionStatusKey] || 'todo';
+        state[sectionStatusKey] = STATUSES[(STATUSES.indexOf(cur) + 1) % STATUSES.length];
+        saveState();
+        renderCourse();
+      });
+
+      secHeader.appendChild(collapseBtn);
+      secHeader.appendChild(title);
+      secHeader.appendChild(sectionStatusBtn);
+      sec.appendChild(secHeader);
+
+      const secBody = document.createElement('div');
+      secBody.className = 'section-body' + (isCollapsed ? ' collapsed' : '');
+
+      collapseBtn.addEventListener('click', () => {
+        state[collapseKey] = !state[collapseKey];
+        saveState();
+        secBody.classList.toggle('collapsed', !!state[collapseKey]);
+        collapseBtn.classList.toggle('collapsed', !!state[collapseKey]);
+      });
+
+      sec.appendChild(secBody);
+
+      const hidden = section.lessons.filter(l => state[l.id]?.hidden && !state[l.id]?.custom);
+      if (hidden.length > 0) {
+        const restoreBar = document.createElement('div');
+        restoreBar.style.cssText = 'font-size:0.75rem;color:#444;margin-bottom:8px;padding-left:4px;';
+        restoreBar.innerHTML = hidden.map(l =>
+          `<span style="cursor:pointer;margin-right:10px;" class="restore-link" data-id="${l.id}">↩ ${state[l.id]?.customTitle || l.title}</span>`
+        ).join('');
+        restoreBar.querySelectorAll('.restore-link').forEach(link => {
+          link.addEventListener('mouseenter', () => link.style.color = '#888');
+          link.addEventListener('mouseleave', () => link.style.color = '#444');
+          link.addEventListener('click', () => {
+            state[link.dataset.id].hidden = false;
+            saveState();
+            renderCourse();
+          });
+        });
+        secBody.appendChild(restoreBar);
+      }
+
+      const baseLessons = [
+        ...section.lessons,
+        ...(section.section === 'In the Field' ? (state.customFieldItems || []) : [])
+      ];
+      const orderKey = 'order_' + section.section.replace(/\s+/g, '_');
+      const savedOrder = state[orderKey];
+      let allLessons;
+      if (savedOrder) {
+        const byId = Object.fromEntries(baseLessons.map(l => [l.id, l]));
+        allLessons = [
+          ...savedOrder.map(id => byId[id]).filter(Boolean),
+          ...baseLessons.filter(l => !savedOrder.includes(l.id))
+        ];
+      } else {
+        allLessons = baseLessons;
+      }
+
+      let dragSrcId = null;
+
+      allLessons.forEach(lesson => {
+        const s = state[lesson.id] || {};
+        if (s.hidden) return;
+        const status = s.status || 'todo';
+        const hasComment = !!(s.comment && s.comment.trim());
+        const indent = s.indent || 0;
+
+        const wrapper = document.createElement('div');
+        wrapper.style.marginLeft = (indent * 28) + 'px';
+        wrapper.style.transition = 'margin-left 0.2s';
+        wrapper.dataset.lessonId = lesson.id;
+
+        const div = document.createElement('div');
+        div.className = 'lesson'
+          + (['torecord', 'recorded', 'done'].includes(status) ? ` status-${status}` : '')
+          + (hasComment ? ' has-comment' : '');
+
+        const titleText = s.customTitle || lesson.title;
+
+        const lessonCollapsed = !!state[lesson.id + '__collapsed'];
+
+        div.innerHTML = `
+          <div class="lesson-header">
+            <span class="drag-handle" title="Slepen om te herordenen">⠿</span>
+            ${lesson.lessonNotes ? `<button class="lesson-collapse-btn${lessonCollapsed ? ' collapsed' : ''}" title="In/uitklappen">▼</button>` : ''}
+            <div class="indent-btns">
+              <button class="indent-btn outdent-btn" title="Minder inspringen" ${indent === 0 ? 'disabled' : ''}>←</button>
+              <button class="indent-btn indent-btn-in" title="Meer inspringen" ${indent >= 3 ? 'disabled' : ''}>→</button>
+            </div>
+            <button class="status-btn ${STATUS_CLASSES[status]}">${STATUS_LABELS[status]}</button>
+            <span class="lesson-title" title="Klik om te bewerken">${titleText}</span>
+            ${lesson.note ? `<span class="lesson-note">${lesson.note}</span>` : ''}
+            <button class="expand-btn" title="Add comment">✎</button>
+            <button class="delete-btn" title="Verwijder">✕</button>
+          </div>
+          <div class="comment-area${hasComment ? ' open' : ''}">
+            <textarea placeholder="Add a comment…">${s.comment || ''}</textarea>
+          </div>
+          ${lesson.lessonNotes ? `<div class="lesson-body${lessonCollapsed ? ' collapsed' : ''}"><div class="lesson-notes"><textarea placeholder="Notes…">${s.lessonNotes || ''}</textarea></div></div>` : ''}
+        `;
+
+        wrapper.appendChild(div);
+
+        const statusBtn = div.querySelector('.status-btn');
+        const expandBtn = div.querySelector('.expand-btn');
+        const commentArea = div.querySelector('.comment-area');
+        const textarea = div.querySelector('textarea');
+        const titleEl = div.querySelector('.lesson-title');
+        const outdentBtn = div.querySelector('.outdent-btn');
+        const indentBtn = div.querySelector('.indent-btn-in');
+        const dragHandle = div.querySelector('.drag-handle');
+
+        dragHandle.addEventListener('mousedown', () => { wrapper.draggable = true; });
+        dragHandle.addEventListener('mouseup', () => { wrapper.draggable = false; });
+
+        wrapper.addEventListener('dragstart', (e) => {
+          dragSrcId = lesson.id;
+          setTimeout(() => div.classList.add('dragging'), 0);
+          e.dataTransfer.effectAllowed = 'move';
+        });
+
+        wrapper.addEventListener('dragend', () => {
+          div.classList.remove('dragging');
+          wrapper.draggable = false;
+          sec.querySelectorAll('.lesson').forEach(l => l.classList.remove('drag-over'));
+        });
+
+        wrapper.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'move';
+          sec.querySelectorAll('.lesson').forEach(l => l.classList.remove('drag-over'));
+          if (dragSrcId !== lesson.id) div.classList.add('drag-over');
+        });
+
+        wrapper.addEventListener('drop', (e) => {
+          e.preventDefault();
+          if (dragSrcId && dragSrcId !== lesson.id) {
+            const ids = allLessons.map(l => l.id);
+            const from = ids.indexOf(dragSrcId);
+            const to = ids.indexOf(lesson.id);
+            ids.splice(from, 1);
+            ids.splice(to, 0, dragSrcId);
+            state[orderKey] = ids;
+            saveState();
+            renderCourse();
+          }
+        });
+
+        const deleteBtn = div.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (lesson.custom) {
+            state.customFieldItems = (state.customFieldItems || []).filter(l => l.id !== lesson.id);
+            delete state[lesson.id];
+          } else {
+            if (!state[lesson.id]) state[lesson.id] = {};
+            state[lesson.id].hidden = true;
+          }
+          saveState();
+          renderCourse();
+        });
+
+        outdentBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!state[lesson.id]) state[lesson.id] = {};
+          state[lesson.id].indent = Math.max(0, (state[lesson.id].indent || 0) - 1);
+          saveState();
+          renderCourse();
+        });
+
+        indentBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!state[lesson.id]) state[lesson.id] = {};
+          state[lesson.id].indent = Math.min(3, (state[lesson.id].indent || 0) + 1);
+          saveState();
+          renderCourse();
+        });
+
+        titleEl.addEventListener('click', () => {
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.value = titleEl.textContent;
+          input.className = 'title-input';
+          titleEl.replaceWith(input);
+          input.focus();
+          input.select();
+
+          function save() {
+            const newVal = input.value.trim() || lesson.title;
+            if (!state[lesson.id]) state[lesson.id] = {};
+            state[lesson.id].customTitle = newVal;
+            saveState();
+            renderCourse();
+          }
+
+          input.addEventListener('blur', save);
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') input.blur();
+            if (e.key === 'Escape') {
+              input.value = titleEl.textContent;
+              input.blur();
+            }
+          });
+        });
+
+        statusBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!state[lesson.id]) state[lesson.id] = {};
+          const cur = state[lesson.id].status || 'todo';
+          const next = STATUSES[(STATUSES.indexOf(cur) + 1) % STATUSES.length];
+          state[lesson.id].status = next;
+          saveState();
+          renderCourse();
+          updateProgress();
+        });
+
+        expandBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          commentArea.classList.toggle('open');
+          if (commentArea.classList.contains('open')) textarea.focus();
+        });
+
+        textarea.addEventListener('input', () => {
+          if (!state[lesson.id]) state[lesson.id] = {};
+          state[lesson.id].comment = textarea.value;
+          saveState();
+          div.classList.toggle('has-comment', !!(textarea.value.trim()));
+        });
+
+        if (lesson.lessonNotes) {
+          const lessonCollapseBtn = div.querySelector('.lesson-collapse-btn');
+          const lessonBody = div.querySelector('.lesson-body');
+          lessonCollapseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!state[lesson.id]) state[lesson.id] = {};
+            state[lesson.id + '__collapsed'] = !state[lesson.id + '__collapsed'];
+            saveState();
+            lessonBody.classList.toggle('collapsed', !!state[lesson.id + '__collapsed']);
+            lessonCollapseBtn.classList.toggle('collapsed', !!state[lesson.id + '__collapsed']);
+          });
+
+          const lessonNotesArea = div.querySelector('.lesson-notes textarea');
+          lessonNotesArea.addEventListener('input', () => {
+            if (!state[lesson.id]) state[lesson.id] = {};
+            state[lesson.id].lessonNotes = lessonNotesArea.value;
+            saveState();
+          });
+
+          const SUB_ITEMS = ['intro_lecture', 'in_the_field', 'editing'];
+          const SUB_LABELS = { intro_lecture: 'Intro lecture', in_the_field: 'In the field session', editing: 'Editing' };
+
+          const subContainer = document.createElement('div');
+          subContainer.className = 'sub-items';
+
+          SUB_ITEMS.forEach(subId => {
+            const fullId = lesson.id + '__' + subId;
+            const subStatus = state[fullId]?.status || 'todo';
+
+            const subDiv = document.createElement('div');
+            subDiv.className = 'sub-item' + (['torecord','recorded','done'].includes(subStatus) ? ` s-${subStatus}` : '');
+
+            const subBtn = document.createElement('button');
+            subBtn.className = 'sub-status-btn ' + STATUS_CLASSES[subStatus];
+            subBtn.style.cssText = { 's-todo': 'background:#2a2a2a;color:#e05555;', 's-torecord': 'background:#1a2035;color:#5b9bd5;', 's-recorded': 'background:#2e2510;color:#f0a500;', 's-done': 'background:#1a3a28;color:#2ecc71;' }[STATUS_CLASSES[subStatus]];
+            subBtn.textContent = STATUS_LABELS[subStatus];
+
+            const subLabel = document.createElement('span');
+            subLabel.className = 'sub-item-label';
+            subLabel.textContent = SUB_LABELS[subId];
+
+            subBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              if (!state[fullId]) state[fullId] = {};
+              const cur = state[fullId].status || 'todo';
+              state[fullId].status = STATUSES[(STATUSES.indexOf(cur) + 1) % STATUSES.length];
+              saveState();
+              renderCourse();
+            });
+
+            subDiv.appendChild(subBtn);
+            subDiv.appendChild(subLabel);
+            subContainer.appendChild(subDiv);
+          });
+
+          div.querySelector('.lesson-body').prepend(subContainer);
+        }
+
+        secBody.appendChild(wrapper);
+      });
+
+      if (section.section === 'In the Field') {
+        const addBtn = document.createElement('button');
+        addBtn.textContent = '+ Voeg item toe';
+        addBtn.style.cssText = 'display:block;margin:8px 0 4px 0;background:none;border:1px dashed #333;color:#555;border-radius:7px;padding:8px 16px;cursor:pointer;font-size:0.8rem;width:100%;text-align:left;transition:color 0.2s,border-color 0.2s;';
+        addBtn.addEventListener('mouseenter', () => { addBtn.style.color='#aaa'; addBtn.style.borderColor='#555'; });
+        addBtn.addEventListener('mouseleave', () => { addBtn.style.color='#555'; addBtn.style.borderColor='#333'; });
+        addBtn.addEventListener('click', () => {
+          const id = 'custom_field_' + Date.now();
+          if (!state.customFieldItems) state.customFieldItems = [];
+          state.customFieldItems.push({ id, title: 'Nieuw item', lessonNotes: true, custom: true });
+          saveState();
+          renderCourse();
+        });
+        secBody.appendChild(addBtn);
+      }
+
+      const notesWrap = document.createElement('div');
+      notesWrap.className = 'section-notes';
+      const notesKey = 'section_notes_' + section.section.replace(/\s+/g, '_');
+      const notesVal = state[notesKey] || '';
+      const notesArea = document.createElement('textarea');
+      notesArea.placeholder = 'Notes…';
+      notesArea.value = notesVal;
+      notesArea.addEventListener('input', () => {
+        state[notesKey] = notesArea.value;
+        saveState();
+      });
+      notesWrap.appendChild(notesArea);
+      secBody.appendChild(notesWrap);
+
+      container.appendChild(sec);
+    });
+
+    updateProgress();
+  }
+
+  function renderFocusBlock() {
+    const container = document.getElementById('focusItems');
+    const items = state.focusItems || [];
+    container.innerHTML = '';
+
+    if (items.length === 0) {
+      container.innerHTML = '<div class="focus-empty">Nog geen items toegevoegd.</div>';
+      return;
+    }
+
+    items.forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'focus-item';
+
+      const titleEl = document.createElement('span');
+      titleEl.className = 'focus-item-title';
+      titleEl.textContent = item.title;
+      titleEl.addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = titleEl.textContent;
+        input.className = 'title-input';
+        titleEl.replaceWith(input);
+        input.focus();
+        input.select();
+        function save() {
+          const val = input.value.trim();
+          if (val) state.focusItems[i].title = val;
+          saveState();
+          renderFocusBlock();
+        }
+        input.addEventListener('blur', save);
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') input.blur();
+          if (e.key === 'Escape') { input.value = titleEl.textContent; input.blur(); }
+        });
+      });
+
+      const dropboxBtn = document.createElement('button');
+      dropboxBtn.className = 'focus-dropbox-btn' + (item.inDropbox ? ' active' : '');
+      dropboxBtn.textContent = item.inDropbox ? '✓ In Dropbox' : 'Nu in Dropbox';
+      dropboxBtn.addEventListener('click', () => {
+        state.focusItems[i].inDropbox = !state.focusItems[i].inDropbox;
+        saveState();
+        renderFocusBlock();
+      });
+
+      const delBtn = document.createElement('button');
+      delBtn.className = 'focus-delete-btn';
+      delBtn.textContent = '✕';
+      delBtn.addEventListener('click', () => {
+        state.focusItems.splice(i, 1);
+        saveState();
+        renderFocusBlock();
+      });
+
+      div.appendChild(titleEl);
+      div.appendChild(dropboxBtn);
+      div.appendChild(delBtn);
+
+      const notesDiv = document.createElement('div');
+      notesDiv.className = 'focus-item-notes';
+      const notesArea = document.createElement('textarea');
+      notesArea.placeholder = 'Notes…';
+      notesArea.value = item.notes || '';
+      notesArea.addEventListener('input', () => {
+        state.focusItems[i].notes = notesArea.value;
+        saveState();
+      });
+      notesDiv.appendChild(notesArea);
+
+      const itemWrap = document.createElement('div');
+      itemWrap.appendChild(div);
+      itemWrap.appendChild(notesDiv);
+      container.appendChild(itemWrap);
+    });
+  }
+
+  document.getElementById('focusAddBtn').addEventListener('click', () => {
+    if (!state.focusItems) state.focusItems = [];
+    state.focusItems.push({ title: 'Nieuw item', inDropbox: false });
+    saveState();
+    renderFocusBlock();
+  });
+
+  function makeEditable(el, stateKey, defaultVal) {
+    el.textContent = state[stateKey] || defaultVal;
+    el.addEventListener('click', () => {
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = el.textContent;
+      input.style.cssText = `font-size:inherit;font-weight:inherit;font-family:inherit;color:inherit;background:#1e1e1e;border:1px solid #444;border-radius:4px;padding:2px 8px;outline:none;width:100%;text-align:center;`;
+      el.replaceWith(input);
+      input.focus();
+      input.select();
+      function save() {
+        const val = input.value.trim() || defaultVal;
+        state[stateKey] = val;
+        saveState();
+        el.textContent = val;
+        input.replaceWith(el);
+      }
+      input.addEventListener('blur', save);
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') input.blur();
+        if (e.key === 'Escape') { input.value = el.textContent; input.blur(); }
+      });
+    });
+  }
+
+  makeEditable(document.getElementById('mainTitle'), 'mainTitle', 'Complete Landscape Photography Course 2025');
+  makeEditable(document.getElementById('mainSubtitle'), 'mainSubtitle', 'Albert Dros × Thijs — lesson tracker');
+
+  renderFocusBlock();
+  renderCourse();
+</script>
+</body>
+</html>
